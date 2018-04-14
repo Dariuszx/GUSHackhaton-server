@@ -17,10 +17,20 @@ public class Product {
 
     private String name;
 
+    @ColumnDefault(value = "0")
+    private boolean isScanned;
+
+    @ColumnDefault(value = "0")
+    private int points;
+
     @Column(name = "health_indicator")
     @ColumnDefault(value = "0")
     private int health_indicator;
 
     @OneToOne(mappedBy = "product")
     private NutritionalValue nutritional;
+
+    public boolean getScanned() {
+        return this.isScanned;
+    }
 }

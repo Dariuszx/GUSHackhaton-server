@@ -15,9 +15,9 @@ public class QuizController {
 
     private final QuizService quizService;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Question findOne(@PathVariable("id") Long id) {
-        return quizService.findOne(id);
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public Question findOne() {
+        return quizService.getQuestion();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)

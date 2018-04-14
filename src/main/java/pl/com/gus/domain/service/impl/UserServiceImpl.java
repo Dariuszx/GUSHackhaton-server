@@ -12,6 +12,7 @@ import pl.com.gus.domain.repository.UserRepository;
 import pl.com.gus.domain.service.UserService;
 
 import java.util.Collections;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -38,5 +39,10 @@ public class UserServiceImpl implements UserService {
     @Cacheable("user")
     public User findById(Long id) {
         return userRepository.findById(id);
+    }
+
+    @Override
+    public List<User> findAllByPoints() {
+        return userRepository.findAllGroupByPointsDesc();
     }
 }

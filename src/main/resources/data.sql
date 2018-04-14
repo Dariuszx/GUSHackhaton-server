@@ -1,7 +1,7 @@
 INSERT INTO user(id, password, points, username) VALUES (1, 'poziom99', 0, 'dariusz');
 
 
-INSERT INTO product(id, name) VALUES ('000000000017', 'Soplica');
+INSERT INTO product(id, name, points) VALUES ('000000000017', 'Soplica', 10);
 INSERT INTO product(id, name) VALUES ('000000000024', 'Banan');
 INSERT INTO product(id, name) VALUES ('000000000031', 'Jabłko');
 INSERT INTO product(id, name) VALUES ('000000000048', 'Lays');
@@ -19,3 +19,10 @@ INSERT INTO answer(id, is_correct, value, question_id) VALUES (1, 0, 'A', 1);
 INSERT INTO answer(id, is_correct, value, question_id) VALUES (2, 0, 'B', 1);
 INSERT INTO answer(id, is_correct, value, question_id) VALUES (3, 1, 'C', 1);
 INSERT INTO answer(id, is_correct, value, question_id) VALUES (4, 0, 'D', 1);
+
+INSERT INTO question(id, question) VALUES (2, 'What is BESTthe answer?');
+
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (5, 0, 'A', 2);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (6, 0, 'B', 2);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (7, 1, 'C', 2);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (8, 0, 'D', 2);

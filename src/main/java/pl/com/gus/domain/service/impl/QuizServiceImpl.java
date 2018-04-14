@@ -3,6 +3,7 @@ package pl.com.gus.domain.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.com.gus.config.ApplicationConstants;
 import pl.com.gus.domain.entity.Answer;
 import pl.com.gus.domain.entity.Question;
 import pl.com.gus.domain.entity.User;
@@ -27,6 +28,17 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public Question findOne(Long id) {
         return questionRepository.findOne(id);
+    }
+
+    public Question getQuestion() {
+        System.out.println(ApplicationConstants.QUIZ_ID);
+        Question q = questionRepository.findOne(ApplicationConstants.QUIZ_ID++);
+
+        if(q == null) {
+            ApplicationConstants.QUIZ_ID = 1L;
+            q = questionRepository.findOne(ApplicationConstants.QUIZ_ID++);
+        }
+        return q;
     }
 
     @Override
