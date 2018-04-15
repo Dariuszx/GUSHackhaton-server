@@ -12,9 +12,5 @@ public class DatabaseLoader implements CommandLineRunner {
     private final UserService userService;
 
     @Override
-    public void run(String... args) throws Exception {
-        userService.save("Dariusz", "poziom99");
-        userService.save("Radek", "radek");
-        userService.save("Konrad", "konrad");
-    }
+    public void run(String... args) throws Exception {}
 }

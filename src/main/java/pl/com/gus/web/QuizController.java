@@ -9,13 +9,13 @@ import pl.com.gus.domain.entity.Question;
 import pl.com.gus.domain.service.QuizService;
 
 @RestController
-@RequestMapping("/api/quiz/")
+@RequestMapping("/api/quiz")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class QuizController {
 
     private final QuizService quizService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public Question findOne() {
         return quizService.getQuestion();
     }
