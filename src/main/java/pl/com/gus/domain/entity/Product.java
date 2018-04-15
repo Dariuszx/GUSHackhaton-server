@@ -4,10 +4,9 @@ package pl.com.gus.domain.entity;
 import lombok.Data;
 import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Map;
 
 @Data
 @Entity
@@ -16,6 +15,10 @@ public class Product {
     @Id private String id;
 
     private String name;
+    private String code;
+
+    @Transient
+    private List<KeyValue> value;
 
     @ColumnDefault(value = "0")
     private boolean isScanned;

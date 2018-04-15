@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.com.gus.config.ApplicationConstants;
-import pl.com.gus.domain.entity.Answer;
-import pl.com.gus.domain.entity.Question;
-import pl.com.gus.domain.entity.User;
-import pl.com.gus.domain.entity.UserAnswer;
+import pl.com.gus.domain.entity.*;
 import pl.com.gus.domain.repository.AnswerRepository;
 import pl.com.gus.domain.repository.QuestionRepository;
 import pl.com.gus.domain.repository.UserAnswerRepository;
@@ -31,13 +28,41 @@ public class QuizServiceImpl implements QuizService {
     }
 
     public Question getQuestion() {
-        System.out.println(ApplicationConstants.QUIZ_ID);
-        Question q = questionRepository.findOne(ApplicationConstants.QUIZ_ID++);
 
-        if(q == null) {
-            ApplicationConstants.QUIZ_ID = 1L;
+        Question q = null;
+        Boolean cont = true;
+
+        while(cont) {
             q = questionRepository.findOne(ApplicationConstants.QUIZ_ID++);
+
+            if(q == null) {
+                ApplicationConstants.QUIZ_ID = 1L;
+                q = questionRepository.findOne(ApplicationConstants.QUIZ_ID++);
+            }
+
+            if(q.getQuestion_dependency().size() > 0) {
+                for (QuestionDependency qd :q.getQuestion_dependency()) {
+                    UserAnswer ua = userAnswerRepository.findByQuestionIdAndUserId(qd.getDependency().getId(), ApplicationConstants.DEFAULT_USER_ID);
+
+                    if(ua != null && ua.getAnswer().is_correct()) {
+                        cont = false;
+                    }
+                }
+            } else {
+                cont = false;
+            }
         }
+
+        Long correctAnswerId = 1L;
+
+        for (Answer a : q.getOption()) {
+            if(a.is_correct()) {
+                correctAnswerId = a.getId();
+            }
+        }
+
+        this.replyAnswer(ApplicationConstants.DEFAULT_USER_ID, q.getId(), correctAnswerId);
+
         return q;
     }
 
@@ -48,7 +73,7 @@ public class QuizServiceImpl implements QuizService {
         Question question = questionRepository.findOne(questionId);
         Answer answer = answerRepository.findOne(answerId);
 
-        if(userAnswerRepository.findByUserId(userId) == null) {
+        if(userAnswerRepository.findByUserIdAndQuestionId(userId, questionId) == null) {
             UserAnswer ua = new UserAnswer();
 
             ua.setQuestion(question);

@@ -19,4 +19,7 @@ public class Question {
 
     @OneToMany(mappedBy = "question")
     private List<UserAnswer> user_answers;
+
+    @OneToMany(mappedBy = "question")
+    private List<QuestionDependency> question_dependency;
 }

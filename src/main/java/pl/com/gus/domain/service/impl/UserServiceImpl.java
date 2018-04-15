@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Cacheable("user")
     public User findById(Long id) {
         return userRepository.findById(id);
     }

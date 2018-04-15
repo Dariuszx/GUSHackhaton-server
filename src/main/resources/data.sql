@@ -10,17 +10,23 @@ INSERT INTO user(id, password, points, username) VALUES (9, 'poziom99', 50, 'Jan
 INSERT INTO user(id, password, points, username) VALUES (10, 'poziom99', 50, 'Tomasz');
 
 
-INSERT INTO product(id, name, points) VALUES ('000000000017', 'Mleko', 8);
-INSERT INTO product(id, name) VALUES ('000000000024', 'Banan');
-INSERT INTO product(id, name) VALUES ('000000000031', 'Jabłko');
-INSERT INTO product(id, name) VALUES ('000000000048', 'Lays');
-INSERT INTO product(id, name) VALUES ('000000000055', 'Nutella');
-INSERT INTO product(id, name) VALUES ('000000000062', 'Sok marchwiowy');
-INSERT INTO product(id, name) VALUES ('000000000079', 'Kawa');
-INSERT INTO product(id, name) VALUES ('000000000086', 'Herbata');
-INSERT INTO product(id, name) VALUES ('000000000093', 'Arbuz');
+INSERT INTO product(id, name, points, health_indicator, code) VALUES ('000000000017', 'Chleb', 3, 8, 'CP01113A');
+INSERT INTO product(id, name, points, health_indicator, code) VALUES ('000000000024', 'Jajko', 5, 7, 'CP01147A');
+INSERT INTO product(id, name, points, health_indicator, code) VALUES ('000000000031', 'Platki sniadaniowe', 15, 9, 'CP01112B');
+INSERT INTO product(id, name, points, health_indicator, code) VALUES ('000000000048', 'Losos', 25, 7, 'CP01131A');
+INSERT INTO product(id, name, points, health_indicator, code) VALUES ('000000000055', 'Ryz', 5, 4, 'CP01111A');
+INSERT INTO product(id, name, points, health_indicator, code) VALUES ('000000000062', 'Oliwki', 15, 8, 'CP01153A');
+INSERT INTO product(id, name, points, health_indicator, code) VALUES ('000000000079', 'Ser', 8, 4, 'CP01145A');
 
-INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (1, 64, 5, 3.5, 3.3, 4, '000000000017');
+INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (1, 264, 49, 3.2, 9, 5, '000000000017');
+
+INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (2, 155, 1.1, 11, 13, 1.1, '000000000024');
+INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (3, 357, 84, 0.4, 8, 10, '000000000031');
+INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (4, 208, 0, 13, 20, 0, '000000000048');
+INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (5, 130, 28, 0.3, 2.7, 0.1, '000000000055');
+INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (6, 115, 6, 11, 0.8, 0, '000000000062');
+INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (7, 402, 1.3, 33, 25, 0.5, '000000000079');
+
 
 INSERT INTO question(id, question) VALUES (1, 'Janek pracuje na umowie śmieciowej i zarabia 6zł/godzinę ile kupi za to jabłek po miesiącu pracy?');
 
@@ -35,3 +41,12 @@ INSERT INTO answer(id, is_correct, value, question_id) VALUES (5, 0, 'A', 2);
 INSERT INTO answer(id, is_correct, value, question_id) VALUES (6, 0, 'B', 2);
 INSERT INTO answer(id, is_correct, value, question_id) VALUES (7, 1, 'C', 2);
 INSERT INTO answer(id, is_correct, value, question_id) VALUES (8, 0, 'D', 2);
+
+INSERT INTO question(id, question) VALUES (3, 'Lorem ipsum?');
+
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (9, 0, 'A', 3);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (10, 0, 'B', 3);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (11, 1, 'C', 3);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (12, 0, 'D', 3);
+
+INSERT INTO question_dependency(dependency_id, question_id) VALUES (3, 2);
