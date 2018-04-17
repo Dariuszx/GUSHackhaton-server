@@ -28,25 +28,25 @@ INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, f
 INSERT INTO nutritional_value(id, calories, carbohydrate, fat, protein, sugar, fk_product_id) VALUES (7, 402, 1.3, 33, 25, 0.5, '000000000079');
 
 
-INSERT INTO question(id, question) VALUES (1, 'Janek pracuje na umowie śmieciowej i zarabia 6zł/godzinę ile kupi za to jabłek po miesiącu pracy?');
+INSERT INTO question(id, question) VALUES (1, 'Gdzie najtaniej mozna kupic jajka?');
 
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (1, 1, '1000 kg', 1);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (2, 0, '100 kg', 1);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (3, 0, '10 kg', 1);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (4, 0, '380 kg', 1);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (1, 1, 'Hiszpania', 1);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (2, 0, 'Chorwacja', 1);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (3, 0, 'Polska', 1);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (4, 0, 'Wlochy', 1);
 
-INSERT INTO question(id, question) VALUES (2, 'What is BESTthe answer?');
+INSERT INTO question(id, question) VALUES (2, 'Który z poznizszych produktow ma najwyzsza wartosc energetyczna?');
 
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (5, 0, 'A', 2);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (6, 0, 'B', 2);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (7, 1, 'C', 2);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (8, 0, 'D', 2);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (5, 0, 'Platki sniadaniowe', 2);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (6, 0, 'Ryz', 2);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (7, 1, 'Ser', 2);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (8, 0, 'Jajka', 2);
 
-INSERT INTO question(id, question) VALUES (3, 'Lorem ipsum?');
+INSERT INTO question(id, question) VALUES (3, 'Losos to ryba bogata w nienasycone kwasy tluszczowe. W jakim kraju mozna ja kupic najtaniej?');
 
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (9, 0, 'A', 3);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (10, 0, 'B', 3);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (11, 1, 'C', 3);
-INSERT INTO answer(id, is_correct, value, question_id) VALUES (12, 0, 'D', 3);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (9, 0, 'Wlochy', 3);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (10, 0, 'Polska', 3);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (11, 1, 'Chorwacja', 3);
+INSERT INTO answer(id, is_correct, value, question_id) VALUES (12, 0, 'Hiszpiania', 3);
 
 INSERT INTO question_dependency(dependency_id, question_id) VALUES (3, 2);

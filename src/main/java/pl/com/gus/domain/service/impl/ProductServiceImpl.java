@@ -54,6 +54,16 @@ public class ProductServiceImpl implements ProductService {
             data.add(new KeyValue(new Integer(s), new Double(s2)));
         });
 
+        if("000000000048".equals(product.getId())) {
+            data.add(new KeyValue(0, 11.45));
+            data.add(new KeyValue(1, 7.27));
+            data.add(new KeyValue(4, 13.22));
+        } else if("000000000079".equals(product.getId())) {
+            data.add(new KeyValue(0, 10.45));
+            data.add(new KeyValue(1, 8.27));
+            data.add(new KeyValue(4, 11.67));
+        }
+
         product.setValue(data);
 
         return product;
